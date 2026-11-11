@@ -5,7 +5,7 @@ import CtaSection from "@/components/section/cta";
 export const metadata = {
   title: "Industries",
   description:
-    "Different environments have different monitoring needs. SERAVIN's connected approach can be configured around deployment requirements.",
+    "Different environments have different monitoring needs. SEVIRON's connected approach can be configured around deployment requirements.",
 };
 
 const industries = [
@@ -41,7 +41,7 @@ export default function IndustriesPage() {
       <PageHero
         eyebrow="Industries"
         title="Environmental Awareness Across Different Industries"
-        lede="Every operating environment has its own environmental conditions and monitoring challenges. SERAVIN aims to help organizations build better visibility through connected sensing, predictive insight, and decision support."
+        lede="Every operating environment has its own environmental conditions and monitoring challenges. SEVIRON aims to help organizations build better visibility through connected sensing, predictive insight, and decision support."
       />
 
       <section className="border-b border-line">
@@ -76,7 +76,7 @@ export default function IndustriesPage() {
               <p className="prose-lede lg:pt-20">
                 The right monitoring setup depends on the site, environmental
                 parameters, sensor placement, connectivity, and operational
-                objectives. SERAVIN works with organizations to understand these
+                objectives. SEVIRON works with organizations to understand these
                 requirements and define an appropriate monitoring approach.
               </p>
             </Reveal>

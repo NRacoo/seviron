@@ -21,40 +21,80 @@ export default function ContactForm() {
   const [status, setStatus] = useState("idle");
   const [errors, setErrors] = useState({});
 
+  
   async function handleSubmit(event) {
     event.preventDefault();
+
     const form = event.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const data = Object.fromEntries(
+      new FormData(form).entries()
+    );
 
     const nextErrors = {};
-    if (!data.fullName?.trim()) nextErrors.fullName = "Full name is required.";
+
+    if (!data.fullName?.trim())
+      nextErrors.fullName = "Full name is required.";
+
     if (!data.company?.trim())
       nextErrors.company = "Company or organization is required.";
+
     if (!data.email?.trim()) {
       nextErrors.email = "Work email is required.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
       nextErrors.email = "Enter a valid email address.";
     }
-    if (!data.interest) nextErrors.interest = "Select an area of interest.";
-    if (!data.message?.trim()) nextErrors.message = "A message is required.";
-    if (!data.consent) nextErrors.consent = "Please acknowledge the privacy notice.";
+
+    if (!data.interest)
+      nextErrors.interest = "Select an area of interest.";
+
+    if (!data.message?.trim())
+      nextErrors.message = "A message is required.";
+
+    if (!data.consent)
+      nextErrors.consent = "Please acknowledge the privacy notice.";
 
     setErrors(nextErrors);
+
     if (Object.keys(nextErrors).length > 0) {
       setStatus("idle");
       return;
     }
 
     setStatus("loading");
+
     try {
-      // Replace with the designated company contact channel once configured.
-      await new Promise((resolve) => setTimeout(resolve, 900));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: data.fullName.trim(),
+          company: data.company.trim(),
+          email: data.email.trim(),
+          phone: data.phone?.trim() || "",
+          interest: data.interest,
+          message: data.message.trim(),
+          consent: data.consent === "on",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Failed to send inquiry.");
+      }
+
       setStatus("success");
+      setErrors({});
       form.reset();
-    } catch {
+
+    } catch (error) {
+      console.error("Contact Form Error:", error);
       setStatus("error");
     }
   }
+
 
   return (
     <section className="border-b border-line">
@@ -68,7 +108,7 @@ export default function ContactForm() {
               >
                 <p className="eyebrow">Inquiry received</p>
                 <p className="mt-5 text-lg leading-relaxed text-ink">
-                  Thank you for contacting SERAVIN. Your inquiry has been
+                  Thank you for contacting SEVIRON. Your inquiry has been
                   received. Our team will review your message and get back to
                   you.
                 </p>
@@ -187,7 +227,7 @@ export default function ContactForm() {
                       className="mt-1 h-4 w-4 shrink-0 accent-[var(--accent)]"
                     />
                     <span>
-                      I acknowledge the privacy notice and consent to SERAVIN
+                      I acknowledge the privacy notice and consent to SE
                       processing this inquiry. *
                     </span>
                   </label>

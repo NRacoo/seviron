@@ -3,7 +3,7 @@ import Reveal from "@/components/ui/reveal";
 
 export default function CtaSection({
   headline = "Make Environmental Awareness Part of Every Operation.",
-  body = "Build a more proactive approach to environmental management with SERAVIN. Start a conversation with our team to explore the right monitoring approach for your facility.",
+  body = "Build a more proactive approach to environmental management with SEVIRON. Start a conversation with our team to explore the right monitoring approach for your facility.",
   label = "Talk to Our Team",
   href = "/contact",
 }) {

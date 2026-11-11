@@ -16,7 +16,7 @@ export default function Hero() {
             Environmental Intelligence for Modern Industries
           </p>
           <p className="mt-4 text-[14px] leading-relaxed text-white/75 sm:mt-5 sm:text-[15px]">
-            Environmental risks should never go unnoticed. SERAVIN connects
+            Environmental risks should never go unnoticed. SEVIRON connects
             environmental sensors with an intelligent monitoring platform to
             help organizations understand current conditions, anticipate
             potential risks, and make informed decisions before issues escalate.

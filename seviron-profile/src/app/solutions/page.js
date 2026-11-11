@@ -13,7 +13,7 @@ const solutions = [
     id: "monitoring",
     index: "01",
     title: "Monitoring — Understand What Is Happening",
-    body: "SERAVIN connects IoT-enabled environmental sensors to a centralized platform, providing continuous visibility into measured environmental conditions. Teams can review current readings, monitor sensor status, and access historical records to better understand conditions across their facilities.",
+    body: "SEVIRON connects IoT-enabled environmental sensors to a centralized platform, providing continuous visibility into measured environmental conditions. Teams can review current readings, monitor sensor status, and access historical records to better understand conditions across their facilities.",
     capabilities: [
       "Connected sensor data collection.",
       "Real-time or near-real-time readings, depending on device connectivity and transmission interval.",
@@ -26,7 +26,7 @@ const solutions = [
     id: "forecast",
     index: "02",
     title: "Forecast & Prediction — Anticipate What Could Happen",
-    body: "Current readings show the condition at a specific moment. Historical patterns and data analysis can provide additional context about what may happen next. SERAVIN aims to transform available environmental data into predictive insights that help teams identify emerging trends and anticipate potential threshold exceedances.",
+    body: "Current readings show the condition at a specific moment. Historical patterns and data analysis can provide additional context about what may happen next. SEVIRON aims to transform available environmental data into predictive insights that help teams identify emerging trends and anticipate potential threshold exceedances.",
     capabilities: [
       "Environmental trend analysis using available historical data.",
       "Forecasting of selected environmental parameters, where supported by the deployed model.",
@@ -39,7 +39,7 @@ const solutions = [
     id: "decision",
     index: "03",
     title: "Decision & Action — Know What to Do Next",
-    body: "Information creates value when it supports action. SERAVIN turns monitored conditions and predictive insights into alerts and decision-support information, helping relevant personnel investigate abnormalities, prioritize potential risks, and determine appropriate follow-up actions.",
+    body: "Information creates value when it supports action. SEVIRON turns monitored conditions and predictive insights into alerts and decision-support information, helping relevant personnel investigate abnormalities, prioritize potential risks, and determine appropriate follow-up actions.",
     capabilities: [
       "Configurable alert thresholds and notification rules.",
       "Alerts for abnormal readings and predicted potential risks, where supported.",
@@ -56,7 +56,7 @@ export default function SolutionsPage() {
       <PageHero
         eyebrow="Solutions"
         title="One Platform. Three Layers of Environmental Intelligence."
-        lede="Environmental management requires more than collecting measurements. Teams need to understand what is happening, anticipate what may happen next, and decide how to respond. SERAVIN connects these capabilities in one integrated platform."
+        lede="Environmental management requires more than collecting measurements. Teams need to understand what is happening, anticipate what may happen next, and decide how to respond. SEVIRON connects these capabilities in one integrated platform."
       />
 
       {solutions.map((solution) => (

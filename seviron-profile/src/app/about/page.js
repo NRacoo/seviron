@@ -5,13 +5,13 @@ import CtaSection from "@/components/section/cta";
 export const metadata = {
   title: "About Us",
   description:
-    "SERAVIN exists to make environmental monitoring more proactive through connected technology and actionable intelligence.",
+    "SEVIRON exists to make environmental monitoring more proactive through connected technology and actionable intelligence.",
 };
 
 const story = [
   "Industrial growth creates opportunities, but it also carries an environmental responsibility. When emissions and air quality are not monitored continuously, abnormal conditions can remain unnoticed until they develop into serious environmental and business concerns. In some cases, companies only recognize the scale of a problem after facing regulatory action, financial penalties, or damage to their reputation.",
   "We believe environmental management should not begin after a problem has occurred. Organizations need better visibility, earlier insights, and the ability to respond with confidence.",
-  "That belief inspired SERAVIN — Secure Environmental Organization. We bring connected sensors and an intelligent digital platform together to help organizations monitor environmental conditions, anticipate potential risks, and make more informed decisions.",
+  "That belief inspired SEVIRON — Secure Environmental Organization. We bring connected sensors and an intelligent digital platform together to help organizations monitor environmental conditions, anticipate potential risks, and make more informed decisions.",
 ];
 
 const values = [
@@ -39,7 +39,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Us"
         title="Born from an Environmental Challenge"
-        lede="SERAVIN exists to make environmental monitoring more proactive through connected technology and actionable intelligence."
+        lede="SEVIRON exists to make environmental monitoring more proactive through connected technology and actionable intelligence."
       />
 
       <section className="border-b border-line">
@@ -103,7 +103,7 @@ export default function AboutPage() {
       </section>
 
       <CtaSection
-        headline="Get to Know SERAVIN."
+        headline="Get to Know SEVIRON."
         body="We would like to understand your environmental monitoring context. Start a conversation with our team."
         label="Talk to Our Team"
       />

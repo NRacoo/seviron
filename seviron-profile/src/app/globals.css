@@ -106,6 +106,13 @@
   }
 }
 
+/* In fullscreen the wrapper fills the viewport, so the 16:9 box that
+   constrains it in page flow has to be released. */
+[data-fullscreen] > div:first-child {
+  aspect-ratio: auto;
+  height: 100%;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

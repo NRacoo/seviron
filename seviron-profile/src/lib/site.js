@@ -1,5 +1,5 @@
 export const site = {
-  name: "SERAVIN",
+  name: "SEVIRON",
   fullName: "Secure Environmental Organization",
   positioning: "AIoT-Based Environmental Intelligence Platform",
   tagline: "Monitor. Predict. Act.",

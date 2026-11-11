@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "@/components/ui/reveal";
+import VideoShowcase from "@/components/ui/video-showcase";
 import CtaSection from "@/components/section/cta";
 import { pillars } from "@/lib/site";
 
@@ -48,11 +49,36 @@ export default function HomeSections() {
           </Reveal>
           <Reveal delay={0.12}>
             <p className="prose-lede mt-8 max-w-2xl">
-              SERAVIN brings environmental data, predictive insights, and
+              SEVIRON brings environmental data, predictive insights, and
               decision support into one connected ecosystem. Instead of relying
               only on periodic checks or reacting after an issue occurs, teams
               gain better visibility into current conditions and potential
               risks.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-b border-line bg-sand">
+        <div className="shell py-24 lg:py-32">
+          <Reveal>
+            <p className="eyebrow">The platform</p>
+            <h2 className="display mt-6 max-w-2xl text-[2rem] sm:text-[2.5rem] lg:text-[3rem]">
+              One Dashboard for Every Condition
+            </h2>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <div className="mt-14">
+              <VideoShowcase
+                src="/images/SevironShort.mp4"
+                poster="/images/demo.webp"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="prose-lede mt-8 max-w-2xl">
+              Live readings, trend history, and risk signals in a single view —
+              so teams can see what is happening and decide what to do next.
             </p>
           </Reveal>
         </div>

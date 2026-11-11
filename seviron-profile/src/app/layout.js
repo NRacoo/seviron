@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/util/SmoothScrollProvider";
 import Navbar from "@/components/layout/navbar";
@@ -15,6 +15,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  display: "swap"
+})
+
 export const metadata = {
   title: {
     default: `${site.name} — ${site.tagline}`,
@@ -27,7 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${montserrat.variable}  antialiased`}
     >
       <body className="bg-sand font-sans text-ink">
         <SmoothScrollProvider>

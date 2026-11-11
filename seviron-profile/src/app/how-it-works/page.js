@@ -17,7 +17,7 @@ const steps = [
   {
     index: "02",
     title: "Connect",
-    body: "Measurements are transmitted to the SERAVIN platform through the available communication network. Transmission frequency depends on device and network configuration.",
+    body: "Measurements are transmitted to the SEVIRON platform through the available communication network. Transmission frequency depends on device and network configuration.",
   },
   {
     index: "03",
@@ -47,7 +47,7 @@ export default function HowItWorksPage() {
       <PageHero
         eyebrow="How It Works"
         title="From Sensors to Smarter Environmental Decisions"
-        lede="SERAVIN brings field-level environmental measurements into a connected digital workflow. Data is collected, transmitted, analyzed, and presented as information that supports timely decisions."
+        lede="SEVIRON brings field-level environmental measurements into a connected digital workflow. Data is collected, transmitted, analyzed, and presented as information that supports timely decisions."
       />
 
       <section className="border-b border-line">
@@ -83,7 +83,7 @@ export default function HowItWorksPage() {
             </Reveal>
             <Reveal delay={0.12}>
               <p className="prose-lede lg:pt-20">
-                SERAVIN helps teams move from fragmented readings to a clearer
+                SEVIRON helps teams move from fragmented readings to a clearer
                 view of environmental conditions. By connecting monitoring,
                 predictive insight, and decision support, the platform can help
                 organizations respond with better context and timing.
