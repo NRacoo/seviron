@@ -7,6 +7,7 @@ const nextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   reactCompiler: true,
+  output: "standalone"
 };
 
 export default nextConfig;
