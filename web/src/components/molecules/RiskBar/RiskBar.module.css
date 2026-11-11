@@ -1,0 +1,78 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.caption {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.score {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.outOf {
+  font-size: 11px;
+  color: var(--ink-3);
+  margin-left: 2px;
+}
+
+.track {
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--surface-sunk);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: 3px;
+  opacity: 0.85;
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--surface);
+  opacity: 0.9;
+}
+
+.scale {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-size: 10px;
+  color: var(--ink-3);
+  font-family: var(--mono);
+}
+
+.scale span:nth-child(n + 2) {
+  text-align: center;
+}
+.scale span:last-child {
+  text-align: right;
+}
+
+.verdict {
+  margin-top: var(--sp-2);
+  padding-left: var(--sp-3);
+  border-left: 2px solid var(--line-strong);
+  font-size: 13px;
+  color: var(--ink-2);
+}

@@ -1,0 +1,46 @@
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  flex: none;
+}
+
+.good {
+  background: var(--ok);
+}
+.moderate {
+  background: var(--warn);
+}
+.high {
+  background: var(--high);
+}
+.danger {
+  background: var(--crit);
+}
+.idle {
+  background: var(--line-strong);
+}
+
+.pulse {
+  box-shadow: 0 0 0 0 currentColor;
+  animation: ring 2.4s ease-out infinite;
+}
+
+@keyframes ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(47, 125, 98, 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(47, 125, 98, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(47, 125, 98, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse {
+    animation: none;
+  }
+}

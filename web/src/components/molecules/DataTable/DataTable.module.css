@@ -1,0 +1,40 @@
+.scroll {
+  overflow-x: auto;
+}
+
+.table {
+  font-size: 13px;
+}
+
+.table th {
+  padding: 0 var(--sp-5) var(--sp-3);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--line);
+}
+
+.table td {
+  padding: var(--sp-3) var(--sp-5);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-2);
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover td {
+  background: var(--surface-sunk);
+}
+
+.empty {
+  padding: var(--sp-6);
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-3);
+}

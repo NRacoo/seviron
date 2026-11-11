@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: var(--c-navy);
+  --color-blue: var(--c-blue);
+  --color-sky: var(--c-skyBlue);
+  --color-lime: var(--c-lime);
+  --color-orange: var(--c-orange);
+  --color-gain: var(--c-gain);
+  --color-loss: var(--c-loss);
+  --color-muted: var(--c-muted);
+  --color-panel: var(--c-panel);
+
+  --font-display: var(--font-inter-tight), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, monospace;
+}
+
+html {
+  background: var(--c-navy);
+  color: var(--c-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: var(--c-lime);
+  color: var(--c-navy);
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-lime);
+  outline-offset: 3px;
+}
+
+.haze {
+  background:
+    radial-gradient(60% 50% at 20% 70%, rgba(245, 165, 36, 0.22), transparent 70%),
+    radial-gradient(70% 60% at 80% 60%, rgba(198, 208, 221, 0.18), transparent 70%),
+    radial-gradient(90% 70% at 50% 100%, rgba(198, 208, 221, 0.3), transparent 75%);
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

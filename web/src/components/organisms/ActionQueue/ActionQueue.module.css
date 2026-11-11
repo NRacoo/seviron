@@ -1,0 +1,153 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 1px solid var(--line);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.check {
+  display: inline-flex;
+  padding-top: 2px;
+  cursor: pointer;
+  flex: none;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.box {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: background 0.14s ease, border-color 0.14s ease;
+}
+
+.input:checked + .box {
+  background: var(--royal);
+  border-color: var(--royal);
+}
+
+.input:focus-visible + .box {
+  outline: 2px solid var(--azure);
+  outline-offset: 2px;
+}
+
+.input:disabled + .box {
+  opacity: 0.6;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.detail {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: 11px;
+  color: var(--ink-3);
+  font-family: var(--mono);
+}
+
+.sep {
+  width: 1px;
+  height: 10px;
+  background: var(--line-strong);
+}
+
+.window {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  border-top: 1px solid var(--line);
+  background: var(--surface-sunk);
+  border-radius: 0 0 var(--r) var(--r);
+  flex-wrap: wrap;
+}
+
+.footNote {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.approved {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.approvedIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--ok);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.approvedTitle {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.approvedRef {
+  display: block;
+  font-size: 11px;
+  color: var(--ink-3);
+  font-family: var(--mono);
+}

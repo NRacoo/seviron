@@ -1,0 +1,56 @@
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: var(--r-sm);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.62);
+  transition: color 0.14s ease, background 0.14s ease;
+}
+
+.item:hover {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.active {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 500;
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--azure);
+}
+
+.icon {
+  display: inline-flex;
+  opacity: 0.82;
+}
+
+.active .icon {
+  opacity: 1;
+}
+
+.label {
+  flex: 1;
+}
+
+.badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}

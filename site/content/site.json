@@ -1,0 +1,263 @@
+{
+  "version": "2.0",
+  "type": "company-profile-website",
+  "meta": {
+    "company": "Seviron",
+    "product": "Perisai",
+    "tagline": "Any sensor, any hazard, one decision.",
+    "oneLiner": "Seviron helps factories, estates and buildings see air and hazard risk before it becomes a sanction, a shutdown or a protest.",
+    "language": "en",
+    "purpose": "Public company profile with scroll storytelling and an interactive product demo. Linked from the pitch deck.",
+    "assumptions": [
+      "Seviron is the company; Perisai is its flagship product.",
+      "Team is the same as the Perisai deck. Confirm before publishing.",
+      "Demo values are sample data, labelled as such on the page."
+    ]
+  },
+  "seo": {
+    "title": "Seviron | Air and hazard decisions for every site",
+    "description": "Seviron's Perisai connects any air sensor, forecasts each site 24 hours ahead and tells managers what to do before limits are crossed.",
+    "ogImage": "/og.png",
+    "keywords": ["air quality monitoring", "industrial emissions", "ESG reporting", "Jakarta", "Indonesia", "PM2.5 forecast"]
+  },
+  "design": {
+    "colors": {
+      "navy": "#0B1B3F",
+      "blue": "#1E6FDC",
+      "skyBlue": "#3FA9F5",
+      "lime": "#D0FF41",
+      "orange": "#F5A524",
+      "gain": "#4ADE80",
+      "loss": "#FF5A5A",
+      "text": "#FFFFFF",
+      "muted": "#C6D0DD",
+      "panel": "#F3F7FD"
+    },
+    "colorRules": ["Green only for what clients gain.", "Red only for what clients lose or risk."],
+    "fonts": { "display": "Inter Tight 700", "body": "Inter 400/500", "mono": "JetBrains Mono" },
+    "mood": "Starts hazy and dark (problem), clears to clean navy and white (solution)."
+  },
+  "nav": {
+    "logo": "SEVIRON",
+    "links": [
+      { "label": "Story", "href": "#story" },
+      { "label": "Perisai", "href": "#product" },
+      { "label": "Demo", "href": "#demo" },
+      { "label": "Solutions", "href": "#solutions" },
+      { "label": "About", "href": "#about" }
+    ],
+    "cta": { "label": "Become a pilot site", "href": "#contact" }
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "pin": true,
+      "scrollLength": "150vh",
+      "content": {
+        "kicker": "SEVIRON",
+        "headline": "Imagine you run a metal smelter in Jakarta.",
+        "subhead": "Scroll to see what happens next.",
+        "scrollHint": true
+      }
+    },
+    {
+      "id": "story",
+      "pin": true,
+      "scrollLength": "300vh",
+      "beats": [
+        {
+          "kicker": "JAKARTA · AUGUST 2023",
+          "text": "The city's air is among the worst in the world.",
+          "stat": { "value": 41.7, "decimals": 1, "unit": "µg/m³", "label": "Jakarta annual PM2.5" },
+          "compare": { "value": 5, "unit": "µg/m³", "label": "WHO guideline" }
+        },
+        { "text": "One morning, government inspectors walk through your gate." },
+        {
+          "text": "Weeks later, you're one of 11 companies sanctioned.",
+          "chips": ["Coal stockpiles", "Metal smelters", "Paper mills", "Charcoal plant"],
+          "bigWord": "Sanctioned."
+        },
+        { "text": "Would you have seen it coming?" },
+        {
+          "text": "Not an isolated case.",
+          "stat": { "value": 116, "decimals": 0, "label": "companies sanctioned in Greater Jakarta, 2023–2025" }
+        }
+      ],
+      "sources": [
+        "CNBC Indonesia, 28 Aug 2023 (KLHK press conference)",
+        "KLH via Kompas, 4 Jun 2025; ANTARA, 21 Aug 2024",
+        "IQAir World Air Quality Report 2024"
+      ]
+    },
+    {
+      "id": "gap",
+      "pin": false,
+      "content": {
+        "headline": "The sensors exist.",
+        "subhead": "The decision layer does not.",
+        "body": "Factories already own sensors from different brands. Each shows its own number on its own app. Nobody tells the site manager what to do next.",
+        "sensors": [
+          { "brand": "Aeroqual", "value": "44.9" },
+          { "brand": "Vaisala", "value": "71.6" },
+          { "brand": "Sensirion", "value": "26.1" },
+          { "brand": "Plantower", "value": "34.8" },
+          { "brand": "Honeywell", "value": "741" },
+          { "brand": "Bosch", "value": "30.1" },
+          { "brand": "Nova", "value": "53.8" },
+          { "brand": "Winsen", "value": "84.7" }
+        ]
+      }
+    },
+    {
+      "id": "product",
+      "pin": true,
+      "scrollLength": "150vh",
+      "content": {
+        "kicker": "PERISAI BY SEVIRON",
+        "headline": "Any sensor, any hazard, one decision.",
+        "pillars": [
+          { "title": "Connect", "text": "Works with any sensor brand already on site." },
+          { "title": "Forecast", "text": "Predicts every parameter 24 hours ahead, per site." },
+          { "title": "Decide", "text": "Tells the manager what to do before a limit is crossed." },
+          { "title": "Report", "text": "Writes the monthly ESG report automatically." }
+        ]
+      }
+    },
+    {
+      "id": "demo",
+      "pin": true,
+      "scrollLength": "500vh",
+      "content": {
+        "kicker": "PRODUCT DEMO",
+        "headline": "One morning, with Perisai.",
+        "badge": "Sample data",
+        "openFull": { "label": "Open full demo", "href": "/demo" }
+      },
+      "site": { "name": "Industrial Estate A", "sensorsReporting": "6/6", "source": "Aeroqual S500", "updated": "10:58" },
+      "parameters": [
+        { "key": "pm25", "label": "PM2.5", "unit": "µg/m³", "now": 44.9, "peak": 53.8, "peakAt": "10:00", "limit": 35, "status": "above" },
+        { "key": "pm10", "label": "PM10", "unit": "µg/m³", "now": 71.6, "peak": 84.7, "peakAt": "10:00", "limit": 100, "status": "watch" },
+        { "key": "no2", "label": "NO₂", "unit": "ppb", "now": 26.1, "peak": 30.7, "peakAt": "10:00", "limit": 50, "status": "watch" },
+        { "key": "o3", "label": "O₃", "unit": "ppb", "now": 34.8, "peak": 32.2, "peakAt": "18:00", "limit": 70, "status": "within" },
+        { "key": "co2", "label": "CO₂", "unit": "ppm", "now": 741.1, "peak": 871.1, "peakAt": "10:00", "limit": 1200, "status": "watch" },
+        { "key": "heat", "label": "Heat index", "unit": "°C", "now": 30.1, "peak": 29.9, "peakAt": "22:00", "limit": 39, "status": "within" }
+      ],
+      "statusColors": { "above": "loss", "watch": "orange", "within": "gain" },
+      "forecastSeries": { "parameter": "pm25", "observedEnd": 44.9, "forecastPeak": 53.8, "peakHour": 10, "limit": 35 },
+      "steps": [
+        { "id": "sensors", "tab": "Sensors", "caption": "Any brand, one view. 6 of 6 sensors reporting." },
+        { "id": "forecast", "tab": "Forecast", "caption": "PM2.5 is 44.9 now. Forecast: 53.8 at 10:00. Limit: 35." },
+        {
+          "id": "decision",
+          "tab": "Decisions",
+          "caption": "One decision, before the limit is crossed.",
+          "decision": {
+            "title": "PM2.5 will exceed the shift limit at 10:00",
+            "actions": ["Wet the stockpile now", "Slow grinding on line 2 until 11:00", "Move outdoor crew indoors 09:30–11:00"]
+          }
+        },
+        {
+          "id": "actions",
+          "tab": "Actions",
+          "caption": "Every action logged with time and owner.",
+          "log": [
+            { "time": "09:02", "owner": "Shift lead", "action": "Stockpile wetting started" },
+            { "time": "09:18", "owner": "Line 2 supervisor", "action": "Grinding rate reduced 30%" },
+            { "time": "09:31", "owner": "HSE officer", "action": "Outdoor crew moved indoors" },
+            { "time": "11:04", "owner": "Shift lead", "action": "Normal operation resumed" }
+          ]
+        },
+        {
+          "id": "esg",
+          "tab": "ESG report",
+          "caption": "The monthly ESG report writes itself.",
+          "report": [
+            { "label": "Exceedance hours", "value": "4.0 h" },
+            { "label": "Compliance rate", "value": "98.2%" },
+            { "label": "Actions approved", "value": "27 / 27" },
+            { "label": "Report status", "value": "Ready to file" }
+          ]
+        }
+      ],
+      "interaction": "Steps advance on scroll; sidebar tabs are also clickable. /demo shows the same dashboard unpinned and fully clickable."
+    },
+    {
+      "id": "outcome",
+      "pin": false,
+      "content": {
+        "headline": "Same factory. Two endings.",
+        "without": { "title": "Without Perisai", "items": ["Shutdown", "Sanctions", "Protests"], "color": "loss" },
+        "with": { "title": "With Perisai", "items": ["Warning before the limit", "Action on record", "ESG report ready"], "color": "gain" }
+      }
+    },
+    {
+      "id": "solutions",
+      "pin": false,
+      "content": {
+        "headline": "Who we work with",
+        "showPricing": false,
+        "items": [
+          { "title": "Factories & smelters", "text": "Forecast dust and emissions; act before the limit.", "price": "Rp 2.5–8.5m / site / month", "primary": true },
+          { "title": "Industrial estates", "text": "One view across every tenant, any sensor brand.", "price": "Rp 75K / sensor / month", "primary": true },
+          { "title": "Buildings & plantations", "text": "Indoor air, heat and haze alerts for staff.", "price": "Rp 75K / sensor / month", "primary": true },
+          { "title": "Government", "text": "Smoke and ash alerts for cities and provinces.", "price": "Rp 200m / city / year", "primary": false, "label": "Coming soon" }
+        ]
+      }
+    },
+    {
+      "id": "why",
+      "pin": false,
+      "content": {
+        "headline": "Others show the data. Perisai makes the decision.",
+        "rows": [
+          { "capability": "Forecast for each site", "perisai": true, "others": "City only" },
+          { "capability": "Fire, ash and trajectories", "perisai": true, "others": "Partial" },
+          { "capability": "Recommended actions", "perisai": true, "others": "Basic or none" },
+          { "capability": "Automated ESG report", "perisai": true, "others": "Limited" },
+          { "capability": "Works with any brand", "perisai": true, "others": "Own hardware only" }
+        ]
+      }
+    },
+    {
+      "id": "about",
+      "pin": false,
+      "content": {
+        "headline": "Air science, AI and B2B under one roof.",
+        "mission": "[FILL: one-sentence mission]",
+        "team": [
+          { "name": "Aria Aura Rachman", "role": "Chief Executive Officer" },
+          { "name": "Adith Adryan Dwiangga", "role": "Chief Technology Officer" },
+          { "name": "Tosy Bima Asadulloh", "role": "Head of Air Science" }
+        ],
+        "advisors": [
+          { "name": "Raihan Azwar Ibrahim Pulungan", "role": "Advisor" },
+          { "name": "Indra Chandra", "role": "Advisor" }
+        ],
+        "partners": "[FILL: partner logos, only with permission]"
+      }
+    },
+    {
+      "id": "contact",
+      "pin": true,
+      "scrollLength": "120vh",
+      "content": {
+        "stat": "116 companies. Three years. All sanctioned.",
+        "headline": "We're calling a partner.",
+        "body": "Give us one site, and we'll show you the warning before the inspector arrives.",
+        "tagline": "Any sensor, any hazard, one decision.",
+        "form": {
+          "fields": ["Name", "Company", "Email", "Site location", "Sensors on site (brand)"],
+          "submit": "Become a pilot site",
+          "action": "[FILL: form endpoint or mailto]"
+        }
+      }
+    }
+  ],
+  "footer": {
+    "company": "Seviron",
+    "address": "[FILL]",
+    "email": "[FILL]",
+    "social": [],
+    "legal": "© 2026 Seviron. Demo data is illustrative."
+  }
+}

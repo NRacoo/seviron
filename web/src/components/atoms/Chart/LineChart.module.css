@@ -1,0 +1,33 @@
+.chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.grid {
+  stroke: var(--line);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.limit {
+  stroke: var(--crit);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  opacity: 0.55;
+  vector-effect: non-scaling-stroke;
+}
+
+.limitText {
+  font-size: 9px;
+  fill: var(--crit);
+  opacity: 0.8;
+  font-family: var(--mono);
+}
+
+.axis {
+  font-size: 9px;
+  fill: var(--ink-3);
+  font-family: var(--mono);
+}

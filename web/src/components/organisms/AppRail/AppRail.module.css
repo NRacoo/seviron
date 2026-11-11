@@ -1,0 +1,79 @@
+.rail {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: var(--rail);
+  flex: none;
+  background: var(--midnight);
+  display: flex;
+  flex-direction: column;
+  padding: var(--sp-5) var(--sp-4);
+  gap: var(--sp-5);
+}
+
+.brand {
+  padding: 0 10px;
+}
+
+.site {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.siteMeta {
+  padding: 0 var(--sp-3);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: var(--mono);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  flex: 1;
+  padding-left: 10px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.groupTitle {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.33);
+  padding: 0 10px var(--sp-2);
+}
+
+.foot {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: var(--sp-3) 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.version {
+  font-family: var(--mono);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 900px) {
+  .rail {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+  }
+}

@@ -1,0 +1,22 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--royal);
+}
+
+.word {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.light {
+  color: var(--white);
+}
+
+.light .word {
+  color: var(--white);
+}
