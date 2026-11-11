@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 import { Wordmark } from "@/components/atoms/Wordmark/Wordmark";
 import { NavItem } from "@/components/molecules/NavItem/NavItem";
-import { SiteSwitcher } from "@/components/molecules/SiteSwitcher/SiteSwitcher";
+import { StationSwitcher } from "@/components/molecules/StationSwitcher/StationSwitcher";
 import type { IconName } from "@/components/atoms/Icon/Icon";
-import type { Site } from "@/types/decision";
+import type { JakartaStation } from "@/types/jakarta";
 import styles from "./AppRail.module.css";
 
 const groups: { title: string; items: { href: string; icon: IconName; label: string }[] }[] = [
@@ -29,11 +29,11 @@ const groups: { title: string; items: { href: string; icon: IconName; label: str
 ];
 
 export function AppRail({
-  sites,
+  stations,
   online,
   total,
 }: {
-  sites: Site[];
+  stations: JakartaStation[];
   online: number;
   total: number;
 }) {
@@ -45,10 +45,10 @@ export function AppRail({
 
       <div className={styles.site}>
         <Suspense fallback={null}>
-          <SiteSwitcher sites={sites} />
+          <StationSwitcher stations={stations} />
         </Suspense>
         <span className={styles.siteMeta}>
-          {online}/{total} sensors reporting
+          {online}/{total} stations reporting
         </span>
       </div>
 
@@ -66,8 +66,8 @@ export function AppRail({
       </nav>
 
       <footer className={styles.foot}>
-        <span>Decision service</span>
-        <span className={styles.version}>v0.1 · POC</span>
+        <span>DLH Jakarta · SPKU</span>
+        <span className={styles.version}>Live data</span>
       </footer>
     </aside>
   );

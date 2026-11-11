@@ -54,8 +54,7 @@ const TitleSceneInner: React.FC<{
           display: "flex",
           flexDirection: "column",
           gap: 40,
-          top: 10,
-          padding: "0 120px",
+          padding: "120px 120px",
           maxWidth: 1500,
         }}
       >

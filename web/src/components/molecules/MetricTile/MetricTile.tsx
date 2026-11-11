@@ -24,7 +24,9 @@ export function MetricTile({ card }: { card: ParameterCard }) {
           <span className={`${styles.now} u-num`}>{num(card.now)}</span>
         </div>
         <div className={styles.cell}>
-          <span className={styles.cellLabel}>{hour(card.peak_hour)} peak</span>
+          <span className={styles.cellLabel}>
+            {card.projected === false ? "peak" : "fcst"} {hour(card.peak_hour)}
+          </span>
           <span className={`${styles.peak} u-num`} style={{ color }}>
             {num(card.forecast)}
           </span>

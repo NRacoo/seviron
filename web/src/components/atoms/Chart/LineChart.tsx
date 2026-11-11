@@ -1,3 +1,4 @@
+import { wibClock } from "@/lib/format";
 import type { Point } from "@/types/decision";
 import styles from "./LineChart.module.css";
 
@@ -48,9 +49,13 @@ export function LineChart({
 
   const ticks = [min, (min + max) / 2, max];
 
-  const labelPoints = all
-    .filter((_, i) => i % Math.max(1, Math.floor(all.length / xLabels)) === 0)
-    .slice(0, xLabels);
+  // Labels are sampled across the whole time range rather than the raw point
+  // array: with several series concatenated, array order is not chronological
+  // and the axis would read out of sequence.
+  const labelPoints = Array.from({ length: xLabels }, (_, i) => {
+    const t = t0 + ((t1 - t0) * i) / Math.max(1, xLabels - 1);
+    return { at: new Date(t).toISOString(), value: 0 };
+  });
 
   return (
     <svg
@@ -103,9 +108,16 @@ export function LineChart({
         );
       })}
 
-      {labelPoints.map((p) => (
-        <text key={p.at} x={x(p.at)} y={height - 6} className={styles.axis} textAnchor="middle">
-          {new Date(p.at).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}
+      {labelPoints.map((p, i) => (
+        <text
+          key={p.at}
+          x={x(p.at)}
+          y={height - 6}
+          className={styles.axis}
+          // Keep the first and last labels inside the plot area.
+          textAnchor={i === 0 ? "start" : i === labelPoints.length - 1 ? "end" : "middle"}
+        >
+          {wibClock(p.at)}
         </text>
       ))}
     </svg>

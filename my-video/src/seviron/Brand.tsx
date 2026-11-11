@@ -29,7 +29,7 @@ export const Wordmark: React.FC<{
             height: light ? size : size * 0.74,
             objectFit: "contain",
           }}
-          durationInFrames={123}
+          durationInFrames={138}
         />
       </div>
       <span

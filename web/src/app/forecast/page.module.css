@@ -1,0 +1,107 @@
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ---------- three-day outlook ---------- */
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--sp-4);
+  background: var(--surface);
+}
+
+.dayLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.dayDate {
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.dayValue {
+  margin-top: var(--sp-2);
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.dayStatus {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+/* ---------- chart ---------- */
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+}
+
+.legend {
+  display: flex;
+  gap: var(--sp-5);
+  flex-wrap: wrap;
+}
+
+.key {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.lineSolid,
+.lineDashed,
+.lineLimit {
+  display: inline-block;
+  width: 18px;
+  border-top-width: 1.5px;
+  border-top-style: solid;
+}
+
+.lineSolid {
+  border-top-color: var(--ink-3);
+}
+
+.lineDashed {
+  border-top-style: dashed;
+}
+
+.lineLimit {
+  border-top-style: dashed;
+  border-top-color: var(--crit);
+}
+
+@media (max-width: 700px) {
+  .days {
+    grid-template-columns: 1fr;
+  }
+}

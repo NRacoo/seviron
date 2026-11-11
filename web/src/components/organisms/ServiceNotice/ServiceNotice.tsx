@@ -8,10 +8,11 @@ export function ServiceNotice({ error }: { error: unknown }) {
         <Icon name="alert" size={18} />
       </span>
       <div>
-        <h2 className={styles.title}>Decision service unavailable</h2>
+        <h2 className={styles.title}>Air quality data unavailable</h2>
         <p className={styles.body}>
-          The dashboard could not reach the Go decision service. Start it with{" "}
-          <code className={styles.code}>cd service &amp;&amp; go run ./cmd/server</code>.
+          The dashboard could not reach the DKI Jakarta monitoring portal at{" "}
+          <code className={styles.code}>udara.jakarta.go.id</code>. Readings
+          will reappear automatically once the source responds.
         </p>
         <p className={styles.detail}>{String(error)}</p>
       </div>

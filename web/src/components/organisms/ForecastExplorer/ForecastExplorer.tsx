@@ -15,10 +15,18 @@ export function ForecastExplorer({ cards }: { cards: ParameterCard[] }) {
 
   const color = severityColor[card.severity];
 
+  // Pollutant series carry no projection — the portal forecasts the index
+  // only — so the chart and labels describe observations instead.
+  const observed = card.projected === false;
+
   return (
     <Panel
-      title="24-hour projection"
-      caption="Holt linear trend with a learned hour-of-day profile, compared against the observed series."
+      title={observed ? "Observed 48 hours" : "Index projection"}
+      caption={
+        observed
+          ? "Half-hourly readings from the station, against its regulatory or advisory limit."
+          : "Three-day SILAM dispersion forecast, compared against the observed series."
+      }
       aside={<Tag tone={card.severity}>{severityLabel[card.severity]}</Tag>}
       padded={false}
     >
@@ -44,14 +52,16 @@ export function ForecastExplorer({ cards }: { cards: ParameterCard[] }) {
             <span className={styles.sumUnit}>{card.unit}</span>
           </div>
           <div className={styles.sum}>
-            <span className={styles.sumLabel}>Forecast peak</span>
+            <span className={styles.sumLabel}>
+              {observed ? "Observed peak" : "Forecast peak"}
+            </span>
             <span className={`${styles.sumValue} u-num`} style={{ color }}>
               {num(card.forecast)}
             </span>
-            <span className={styles.sumUnit}>at {hour(card.peak_hour)}</span>
+            <span className={styles.sumUnit}>at {hour(card.peak_hour)} WIB</span>
           </div>
           <div className={styles.sum}>
-            <span className={styles.sumLabel}>Shift limit</span>
+            <span className={styles.sumLabel}>Limit</span>
             <span className={`${styles.sumValue} u-num`}>{num(card.limit)}</span>
             <span className={styles.sumUnit}>{card.unit}</span>
           </div>
@@ -65,24 +75,33 @@ export function ForecastExplorer({ cards }: { cards: ParameterCard[] }) {
           unit={card.unit}
           limit={card.limit}
           height={200}
-          series={[
-            { points: card.history, color: "var(--ink-3)" },
-            { points: card.trend, color, dashed: true, fill: true },
-          ]}
+          series={
+            observed
+              ? [{ points: card.history, color, fill: true }]
+              : [
+                  { points: card.history, color: "var(--ink-3)" },
+                  { points: card.trend, color, dashed: true, fill: true },
+                ]
+          }
         />
 
         <div className={styles.legend}>
           <span className={styles.key}>
-            <span className={styles.lineSolid} />
-            Observed 24 h
+            <span
+              className={styles.lineSolid}
+              style={observed ? { borderTopColor: color } : undefined}
+            />
+            Observed 48 h
           </span>
-          <span className={styles.key}>
-            <span className={styles.lineDashed} style={{ borderTopColor: color }} />
-            Forecast 24 h
-          </span>
+          {observed ? null : (
+            <span className={styles.key}>
+              <span className={styles.lineDashed} style={{ borderTopColor: color }} />
+              Forecast H+1 to H+3
+            </span>
+          )}
           <span className={styles.key}>
             <span className={styles.lineLimit} />
-            Shift limit
+            {card.parameter === "ispu" ? "Healthy limit" : "Limit"}
           </span>
         </div>
       </div>

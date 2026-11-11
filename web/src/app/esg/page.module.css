@@ -59,6 +59,56 @@
   line-height: 1.6;
 }
 
+/* ---------- reporting basis ---------- */
+
+.basis {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.basisLabel {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.basisText {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+/* ---------- scope and limitations ---------- */
+
+.limits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  list-style: none;
+}
+
+.limits li {
+  position: relative;
+  padding-left: var(--sp-4);
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.limits li::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ink-3);
+}
+
 .generated {
   margin-top: var(--sp-3);
   font-size: 11px;

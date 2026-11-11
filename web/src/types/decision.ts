@@ -1,3 +1,11 @@
+/**
+ * View models shared by the component library.
+ *
+ * These describe what the UI renders, not where it came from: the adapters in
+ * `lib/adapt.ts` map the live Jakarta feed onto these shapes, which keeps the
+ * presentational components independent of the upstream data source.
+ */
+
 export type Severity = "good" | "moderate" | "high" | "danger";
 
 export interface Point {
@@ -5,74 +13,23 @@ export interface Point {
   value: number;
 }
 
-export interface Sensor {
-  device_id: string;
-  name: string;
-  vendor: string;
-  station: string;
-  placement: string;
-  parameters: string[];
-  online: boolean;
-  uptime: number;
-  last_seen: string;
-}
-
-export interface SensorFleet {
-  station: string;
-  total: number;
-  online: number;
-  sensors: Sensor[];
-}
-
-export interface Site {
-  name: string;
-  region: string;
-  lat: number;
-  lon: number;
-  category: string;
-}
-
-export interface SiteMarker {
-  name: string;
-  region: string;
-  category: string;
-  lat: number;
-  lon: number;
-  risk_score: number;
-  risk_level: Severity;
-  risk_label: string;
-  at_risk_count: number;
-  total_params: number;
-  headline: string;
-  driver: string;
-  driver_value: number;
-  driver_unit: string;
-  peak_hour: number;
-  online: boolean;
-}
-
-export interface MapSummary {
-  total: number;
-  at_risk: number;
-  critical: number;
-  mean_risk: number;
-}
-
-export interface SiteMap {
-  generated_at: string;
-  horizon: string;
-  country: string;
-  sites: SiteMarker[];
-  summary: MapSummary;
-}
-
+/** One measurand, as rendered by `MetricTile` and `ForecastExplorer`. */
 export interface ParameterCard {
   parameter: string;
   label: string;
   unit: string;
+  /** Provenance line, e.g. "DLH Jakarta · SPKU". */
   vendor: string;
   now: number;
+  /**
+   * The comparison reading. This is a genuine projection when `projected` is
+   * true, and the peak of the observed window otherwise — the UI labels the
+   * two differently so a measured high is never shown as a prediction.
+   */
   forecast: number;
+  /** False when `forecast` is an observed peak rather than a projection. */
+  projected?: boolean;
+  /** Hour of day (WIB) at which `forecast` occurs. */
   peak_hour: number;
   delta: number;
   limit: number;
@@ -82,55 +39,22 @@ export interface ParameterCard {
   trend: Point[];
 }
 
-export interface Insight {
-  parameter: string;
-  label: string;
-  text: string;
-  hour: number;
-  severity: Severity;
-}
-
+/** A proposed operational control, as rendered by `ActionQueue`. */
 export interface Action {
   id: string;
   label: string;
   detail: string;
   owner: string;
   window: string;
+  /** True when the current air quality band calls for this control. */
   enabled: boolean;
+  /** The reading that triggers it, e.g. "ISPU 160 exceeds 100". */
   driver: string;
+  /** Governing standard, e.g. "PP 22/2021". */
   reference: string;
 }
 
-export interface Decision {
-  station: string;
-  generated_at: string;
-  horizon: string;
-  cards: ParameterCard[];
-  insights: Insight[];
-  actions: Action[];
-  risk_score: number;
-  risk_label: string;
-  risk_level: Severity;
-  at_risk_count: number;
-  total_params: number;
-  live: boolean;
-}
-
-export interface ForecastBundle {
-  station: string;
-  horizon: string;
-  generated_at: string;
-  cards: ParameterCard[];
-}
-
-export interface ActionBundle {
-  station: string;
-  risk_score: number;
-  risk_label: string;
-  actions: Action[];
-  insights: Insight[];
-}
-
+/** A parameter's performance over the reporting window. */
 export interface ESGMetric {
   parameter: string;
   label: string;
@@ -140,22 +64,4 @@ export interface ESGMetric {
   limit: number;
   exceeded_hours: number;
   status: Severity;
-}
-
-export interface AuditEntry {
-  ref: string;
-  at: string;
-  action: string;
-  actor: string;
-  result: string;
-}
-
-export interface ESGReport {
-  station: string;
-  period: string;
-  generated_at: string;
-  compliance_rate: number;
-  metrics: ESGMetric[];
-  audit: AuditEntry[];
-  frameworks: string[];
 }

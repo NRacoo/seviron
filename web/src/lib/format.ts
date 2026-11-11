@@ -28,6 +28,57 @@ export function hour(h: number): string {
   return `${String(h).padStart(2, "0")}:00`;
 }
 
+/**
+ * Jakarta is the operating context, so readings are always shown in WIB
+ * regardless of where the server or the reader happens to be.
+ */
+const WIB = "Asia/Jakarta";
+
+export function wibClock(iso: string): string {
+  return new Date(iso).toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: WIB,
+  });
+}
+
+export function wibHour(iso: string): string {
+  return `${new Date(iso).toLocaleString("en-GB", {
+    hour: "2-digit",
+    hour12: false,
+    timeZone: WIB,
+  })}:00`;
+}
+
+/** Hour-of-day in Jakarta time, for "peak window" copy. */
+export function wibHourOf(iso: string): number {
+  return Number(
+    new Date(iso).toLocaleString("en-GB", {
+      hour: "2-digit",
+      hour12: false,
+      timeZone: WIB,
+    }),
+  );
+}
+
+export function wibDate(iso: string): string {
+  return new Date(iso).toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    timeZone: WIB,
+  });
+}
+
+export function wibDateTime(iso: string): string {
+  return new Date(iso).toLocaleString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: WIB,
+  });
+}
+
 export function clock(iso: string): string {
   return new Date(iso).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
 }

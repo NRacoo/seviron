@@ -26,7 +26,7 @@ export function ActionQueue({ actions }: { actions: Action[] }) {
   return (
     <Panel
       title="Action queue"
-      caption="Controls proposed by the decision engine for the next shift. Approval is written to the ESG audit trail."
+      caption="Controls implied by the station's current air quality band. Those not called for at this band remain on standby."
       aside={<Tag tone="brand">{count} selected</Tag>}
       padded={false}
     >
@@ -51,6 +51,7 @@ export function ActionQueue({ actions }: { actions: Action[] }) {
               <div className={styles.content}>
                 <div className={styles.titleRow}>
                   <span className={styles.label}>{a.label}</span>
+                  {a.enabled ? null : <Tag>Standby</Tag>}
                   <Tag>{a.reference}</Tag>
                 </div>
                 <p className={styles.detail}>{a.detail}</p>
@@ -61,6 +62,12 @@ export function ActionQueue({ actions }: { actions: Action[] }) {
                     <Icon name="clock" size={12} />
                     {a.window}
                   </span>
+                  {a.driver ? (
+                    <>
+                      <span className={styles.sep} />
+                      <span>{a.driver}</span>
+                    </>
+                  ) : null}
                 </div>
               </div>
             </li>
@@ -77,14 +84,16 @@ export function ActionQueue({ actions }: { actions: Action[] }) {
             <div>
               <span className={styles.approvedTitle}>{count} controls approved</span>
               <span className={styles.approvedRef}>
-                Written to ESG audit trail · reference {approvedRef}
+                Reference {approvedRef} · held in this session only, pending
+                approval-workflow integration
               </span>
             </div>
           </div>
         ) : (
           <>
             <p className={styles.footNote}>
-              Approval dispatches notifications and logs an immutable audit entry.
+              Pre-selected controls are those the current air quality band calls
+              for. Approval is not yet persisted server-side.
             </p>
             <Button variant="primary" onClick={approve} disabled={count === 0}>
               Approve {count} control{count === 1 ? "" : "s"}

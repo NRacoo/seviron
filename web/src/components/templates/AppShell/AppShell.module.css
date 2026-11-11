@@ -18,6 +18,35 @@
   gap: var(--sp-5);
 }
 
+/*
+ * Map-style routes opt out of the reading-width container and take the whole
+ * viewport beside the rail. Detected from the child so individual pages stay
+ * declarative and the layout needs no prop plumbing.
+ */
+.shell:has(.bleed) {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main:has(.bleed) {
+  align-self: stretch;
+  height: 100vh;
+}
+
+.inner:has(.bleed) {
+  position: relative;
+  max-width: none;
+  height: 100%;
+  padding: 0;
+  gap: 0;
+}
+
+.bleed {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
 @media (max-width: 900px) {
   .shell {
     flex-direction: column;

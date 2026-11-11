@@ -1,21 +1,29 @@
 import { AppRail } from "@/components/organisms/AppRail/AppRail";
-import type { Site } from "@/types/decision";
+import type { JakartaStation } from "@/types/jakarta";
 import styles from "./AppShell.module.css";
 
+/**
+ * Opts a route out of the centred reading container so it can fill the
+ * viewport. `AppShell` detects this wrapper with `:has()`.
+ */
+export function FullBleed({ children }: { children: React.ReactNode }) {
+  return <div className={styles.bleed}>{children}</div>;
+}
+
 export function AppShell({
-  sites,
+  stations,
   online,
   total,
   children,
 }: {
-  sites: Site[];
+  stations: JakartaStation[];
   online: number;
   total: number;
   children: React.ReactNode;
 }) {
   return (
     <div className={styles.shell}>
-      <AppRail sites={sites} online={online} total={total} />
+      <AppRail stations={stations} online={online} total={total} />
       <main className={styles.main}>
         <div className={styles.inner}>{children}</div>
       </main>

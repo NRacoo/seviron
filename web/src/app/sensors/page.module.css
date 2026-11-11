@@ -13,7 +13,73 @@
   font-size: 13px;
   font-weight: 500;
   color: var(--ink);
-  font-family: var(--mono);
+}
+
+.name:hover {
+  color: var(--royal);
+  text-decoration: underline;
+}
+
+/* ---------- area averages ---------- */
+
+.areas {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.area {
+  display: grid;
+  grid-template-columns: 150px 1fr 44px 84px;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 7px 0;
+}
+
+.area + .area {
+  border-top: 1px solid var(--line);
+}
+
+.areaName {
+  font-size: 12px;
+  color: var(--ink-2);
+}
+
+.areaTrack {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--surface-sunk);
+  overflow: hidden;
+}
+
+.areaFill {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.areaValue {
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.areaCount {
+  font-size: 11px;
+  color: var(--ink-3);
+  text-align: right;
+}
+
+@media (max-width: 700px) {
+  .area {
+    grid-template-columns: 1fr 44px;
+  }
+
+  .areaTrack,
+  .areaCount {
+    display: none;
+  }
 }
 
 .id {
