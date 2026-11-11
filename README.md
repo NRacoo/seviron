@@ -1,4 +1,4 @@
-# Perisai — Environmental Decision Platform (POC)
+# Seviron — Environmental Decision Platform (POC)
 
 Multi-vendor air sensors are normalized into one schema, projected 24 hours
 ahead, and converted into auditable operational decisions.
@@ -10,7 +10,7 @@ ingest  ->  normalize  ->  forecast  ->  decide  ->  act  ->  report
 ## Layout
 
 ```
-perisai/
+seviron/
 ├── service/                   # Go decision service (standard library only)
 │   ├── cmd/server
 │   └── internal/

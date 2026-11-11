@@ -4,7 +4,8 @@ services:
       context: ./seviron-profile
     container_name: seviron-ui
     restart: unless-stopped
-    ports: "8999:8999"
+    ports: 
+    - "8999:8999"
     env_file:
     - ./seviron-profile/.env 
     networks:
